@@ -3,6 +3,7 @@ using namespace std;
 
 class Solution {
 public:
+    // clumsy
     vector<string> addOperators(string num, int target) {
         vector<string> ans;
         int len = num.length(), times = pow(4, len - 1);
