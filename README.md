@@ -1,1 +1,2 @@
-# This is my code in LeetCode
+### This is my code on LeetCode, written by myself.
+use C++
