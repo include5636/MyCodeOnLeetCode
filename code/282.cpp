@@ -19,28 +19,29 @@ public:
         vector<int> op(len, 0);
         while (times--) {
             // calc
-            long long pre = 0, cur = num[0] - '0';
+            stack<long long> st;
+            bool err = 0;
+            st.push(num[0] - '0');
             for (int i = 0; i < len - 1; i++) {
                 long long number = num[i + 1] - '0';
                 if (op[i] == 0) {
-                    if (cur == 0) {
-                        cur = -10000000000;
+                    long long pre = st.top();
+                    if (pre == 0) {
+                        err = 1;
                         break;
                     }
-                    cur = cur * 10 + number;
+                    st.push(pre * 10 + number);
                 } else if (op[i] == 1) {
-                    pre += cur;
-                    cur = number;
+                    
                 } else if (op[i] == 2) {
-                    pre += cur;
-                    cur = -number;
+
                 } else if (op[i] == 3) {
-                    cur *= number;
+
                 }
             }
 
             // store
-            pre += cur;
+
             if (pre == target) {
                 string tmp;
                 tmp.push_back(num[0]);
@@ -65,7 +66,7 @@ public:
             op[len - 2]++;
             for (int i = len - 2; i > 0; i--) {
                 if (op[i] > 3) {
-                    op[i] -= 3;
+                    op[i] -= 4;
                     op[i - 1]++;
                 }
             }
