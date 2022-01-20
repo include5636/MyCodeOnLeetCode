@@ -1,3 +1,10 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+/**
+ * 简单遍历
+ */
+
 class Solution {
 public:
     char slowestKey(vector<int>& releaseTimes, string keysPressed) {
